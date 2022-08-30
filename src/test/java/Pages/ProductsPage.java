@@ -1,7 +1,9 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
 
@@ -16,7 +18,7 @@ public class ProductsPage extends BasePage {
     }
 
     public boolean isOpened() {
-        return driver.findElement(PAGE_TITLE).isDisplayed();
+        return waitForVisibility(PAGE_TITLE);
     }
 
     public void addToCart(String item) {
